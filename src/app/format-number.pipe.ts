@@ -22,8 +22,5 @@ export class FormatNumberPipe implements PipeTransform {
         break
     }
     return this.result;
-
-    // return value.toLocaleString(locale);
   }
-
 }

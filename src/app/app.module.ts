@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { CardComponent } from './card/card.component';
 import {AttributeDirective} from "./attribute.directive";
 import { FormatNumberPipe } from './format-number.pipe';
+import {SET_INTERVAL, DOCUMENT, TimerService} from "./timer.service";
 
 @NgModule({
   declarations: [
@@ -18,7 +19,17 @@ import { FormatNumberPipe } from './format-number.pipe';
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    TimerService,
+    {
+      provide: DOCUMENT,
+      useValue: document
+    },
+    {
+      provide: SET_INTERVAL,
+      useValue: setInterval
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
